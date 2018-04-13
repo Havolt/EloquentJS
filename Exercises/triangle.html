@@ -8,24 +8,53 @@
 </head>
 <body>
 
-    <div class="app"></div>
+    <div class="appOne"></div>
+    <div class="appTwo"></div>
+    <div class="appThree"></div>
 
     <script>
 
-
-
         function buildTriangle(num){
             let thisLine = '';
-            if(num > 1) document.querySelector('.app').innerHTML+='<br />';
+            if(num > 1) document.querySelector('.appOne').innerHTML+='<br />';
             for(let i = 0; i < num; i++){
-                document.querySelector('.app').innerHTML+='#';
+                document.querySelector('.appOne').innerHTML+='#';
                 thisLine += '#';
             }
             console.log(thisLine);
         }
+
+        function fizzBuzz(num){
+            for(let i = 1; i < num; i++){
+                if(i % 3 == 0 && i % 5 == 0){console.log('FizzBuzz'); document.querySelector('.appTwo').innerHTML+='<br /> FizzBuzz'}
+                else if(i % 3 == 0){console.log('Fizz'); document.querySelector('.appTwo').innerHTML+='<br /> Fizz'}
+                else if(i % 5 == 0){console.log('Buzz'); document.querySelector('.appTwo').innerHTML+='<br /> Buzz'}
+                else{console.log(i); document.querySelector('.appTwo').innerHTML+='<br />'+i}
+            }
+        }
+
+        function checkerBoard(num){
+            let even;
+            let singleLine = '';
+            document.querySelector('.appThree').style.fontFamily='monospace';
+            for(let i = 0; i < num; i++){
+                if(i % 2 == 0){even = false}
+                else{even = true;}
+                document.querySelector('.appThree').innerHTML+='<br />';
+                for(let j = 0; j < num; j++){
+                    if(even){document.querySelector('.appThree').innerHTML+='#'; singleLine+='#';}
+                    else{document.querySelector('.appThree').innerHTML+='&nbsp;'; singleLine+=' ';}
+                    even = !even;
+                }
+                console.log(singleLine)
+                singleLine = '';
+            }
+        }
         
         (function initApp(){
             for(let i = 1; i < 8; i ++){buildTriangle(i)}
+            fizzBuzz(101);
+            checkerBoard(8)
         })()
 
 
