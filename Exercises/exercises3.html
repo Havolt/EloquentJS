@@ -19,20 +19,48 @@
         function findRange(start, end, increment){
             let arrRange = [];
             function findRangeRecur(start, end, increment){
-                arrRange.push(start);
-                if(start == end){return arrRange}
-                else{
-                    if(increment){start =  start + increment}
-                    else{start++};
+
+
+
+                if(increment == undefined || increment > 0){
+                    if(start <= end){arrRange.push(start);}
+                    if(start >= end){return arrRange}
+                    else{
+                        if(increment){start += increment}
+                        else{start++};
+                    }
+                }else{
+                    if(start >= end){arrRange.push(start);}
+                    if(start <= end){return arrRange}
+                    else{
+                        if(increment){start += increment}
+                        else{start++};
+                    }
                 }
-                return findRangeRecur(start, end, increment);
+
+
+                    
+
+
+
+
+                    return findRangeRecur(start, end, increment);
             }
             return findRangeRecur(start, end, increment)
+        }
+
+        //sum function
+        function sumNums(arr){
+            let finalNum = 0;
+            for(let i = 0; i < arr.length; i++){
+                finalNum += arr[i];
+            }
+            return finalNum;
         }
     
     
     (function initExercises(){
-        console.log(findRange(1, 10));
+        console.log(findRange(5, 2, -1));
     })()
     
     </script>
