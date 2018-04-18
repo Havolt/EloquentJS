@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercises 3</title>
+</head>
+<body>
+
+
+    <div class="app"></div>
+
+
+    <script>
+
+
+        //range function
+        function findRange(start, end, increment){
+            let arrRange = [];
+            function findRangeRecur(start, end, increment){
+                arrRange.push(start);
+                if(start == end){return arrRange}
+                else{
+                    if(increment){start =  start + increment}
+                    else{start++};
+                }
+                return findRangeRecur(start, end, increment);
+            }
+            return findRangeRecur(start, end, increment)
+        }
+    
+    
+    (function initExercises(){
+        console.log(findRange(1, 10));
+    })()
+    
+    </script>
+    
+</body>
+</html>
