@@ -30,6 +30,20 @@
         }
     }
 
+    //bean counter function
+    function countBs(string){
+        return countChar(string, 'B');
+    }
+
+    //count characters function
+    function countChar(string, char){
+        let strSplit = string.split('');
+        let counter = 0;
+        for(let i = 0; i < strSplit.length; i++){
+            if(strSplit[i] == char){counter++};
+        }
+        return counter;
+    }
 
 
 
@@ -38,9 +52,11 @@
     (function initExercise(){
         console.log(myMin(3, 5));
         console.log(myMin(40, -10));
-        console.log(isEven(25));
-        console.log(isEven(200));
-        console.log(isEven(-21));
+        console.log(isEven(50));
+        console.log(isEven(75));
+        console.log(isEven(-1));
+        console.log(countBs('Barry Busey Boy BBe'));
+        console.log(countChar('Elvis Eloped with Elaine', 'E'));
     })()
     
     </script>
